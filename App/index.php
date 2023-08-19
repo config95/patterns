@@ -1,16 +1,20 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors',true);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Instrument/Instrument.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Papers/Papers.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Manager/Manager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Hammer/Hammer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Document/Document.php';
 
-require_once 'bootstrap.php';
+$manager = new \App\Manager();
+$instance1 = new \App\Document();
+$instance2 = new \App\Hammer();
+$instance3 = new stdClass();
+$instance4 = 'string';
+$instance5 = 1;
 
-$router = new \App\Router();
-
-$router->get('/',      \App\Controller::class . '@index');
-$router->get('/about', \App\Controller::class . '@about');
-
-$application = new \App\Application($router);
-
-
-$application->run();
+$manager->place($instance1);
+$manager->place($instance2);
+$manager->place($instance3);
+$manager->place($instance4);
+$manager->place($instance5);
