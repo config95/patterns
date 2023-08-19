@@ -7,10 +7,10 @@ require_once 'bootstrap.php';
 
 $router = new \App\Router();
 
-$router->get('/App/Lesson3/CMS/',     function() {
+$router->get('/',     function() {
     return 'home';
 });
-$router->get('/App/Lesson3/CMS/about', function() {
+$router->get('/about', function() {
     return 'about';
 });
 

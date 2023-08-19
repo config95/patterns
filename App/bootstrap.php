@@ -1,3 +1,3 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/App/Lesson3/CMS/Router/Router.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/App/Lesson3/CMS/Application/Application.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Router/Router.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Application/Application.php';
