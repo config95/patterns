@@ -6,5 +6,4 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./:/var/www/html/
-      - ./settings/.htaccess:/var/www/.htaccess
+      - ./App/:/var/www/html/
