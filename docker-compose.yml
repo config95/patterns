@@ -1,0 +1,10 @@
+version: "3"
+services:
+  webserver:
+    build:
+      dockerfile: ./dockerfiles/Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www/html/
+      - ./settings/.htaccess:/var/www/.htaccess
