@@ -21,7 +21,7 @@ class View implements Renderable
         ob_start(); //Init the output buffering
         require_once $this->view;
         $page = ob_get_clean(); //Get the buffer and erase it
-
+        
         foreach ($this->data as $key => $item) {
             $page = str_replace('{{' . $key . '}}', $item, $page);
         }
