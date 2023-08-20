@@ -12,6 +12,6 @@ class Router
     }
 
     public function dispatch() {
-        echo $this->routes[$_SERVER['REQUEST_URI']]();
+        return $this->routes[$_SERVER['REQUEST_URI']]();
     }
 }

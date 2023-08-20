@@ -4,7 +4,7 @@ namespace App;
 
 class Controller {
     public static function index() {
-        return 'index';
+        return (new View('index', ['title' => 'Title']))->render();
     }
 
     public static function about() {
