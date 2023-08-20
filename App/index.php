@@ -1,16 +1,19 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Formatter/Formatter.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/MyFormatter/MyFormatter.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Renderable/Renderable.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/MyRender/MyRender.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Display/Display.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors',true);
+$myObj = new stdClass();
+$myObj->format = function ($string) {
+  return $string . ' Никогда такого не было и вот опять. Вызов метода в stdClass. Переношу строку.<br>';
+};
+$strings = ['Разбежавшись прыгну со скалы.', 'Вот я был и вот меня не стало.', 'Проклятый старый дом.', 'Кукла колдуна.', 'И вот строки закончились.'];
+$instances = [new \App\MyRender(), new \App\MyFormatter(), $myObj, new stdClass()];
 
-require_once 'bootstrap.php';
-
-$router = new \App\Router();
-
-$router->get('/',      \App\Controller::class . '@index');
-$router->get('/about', \App\Controller::class . '@about');
-
-$application = new \App\Application($router);
-
-
-$application->run();
+foreach ($strings as $string) {
+    foreach ($instances as $instance) {
+        \App\Display::show($instance, $string);
+    }
+}
