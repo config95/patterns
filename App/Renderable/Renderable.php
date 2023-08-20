@@ -2,5 +2,5 @@
 namespace App;
 
 interface Renderable {
-    public function render(string $string);
+    public function render();
 }
