@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Cat extends Item
+class MyFormatter
 {
 
 }
