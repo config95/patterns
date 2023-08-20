@@ -2,7 +2,7 @@
 
 namespace App;
 
-abstract class Papers
+class Fish extends Item
 {
 
 }

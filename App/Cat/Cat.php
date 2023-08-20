@@ -2,7 +2,7 @@
 
 namespace App;
 
-abstract class Instrument
+class Cat extends Item
 {
 
 }
