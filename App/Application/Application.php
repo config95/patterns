@@ -20,7 +20,7 @@ class Application
                 echo $e->getMessage();
             }
 
-            return '';
+            return;
         }
 
         if ($data instanceof Renderable) {
