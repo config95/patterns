@@ -30,11 +30,14 @@ class Application
         }
     }
 
-    protected function renderException(\Exception $e) {
-
-        if ($e instanceof Renderable) {
+    protected function renderException(\Exception $e)
+    {
+        if ($e instanceof Renderable)
+        {
             throw new \Exception($e->render(), 500);
-        } else {
+        }
+        else
+        {
             throw new \Exception($e->getMessage(), 500);
         }
     }
