@@ -5,12 +5,21 @@ ini_set('display_errors',true);
 
 require_once 'bootstrap.php';
 
-$router = new \App\Router();
+$arrfunc = [
+    function($num1, $num2) {
+    return $num1 + $num2;
+},
+    function($num1, $num2) {
+    return $num1 - $num2;
+},
+    function($num1, $num2) {
+    return $num1 / $num2;
+},
+    function($num1, $num2) {
+    return $num1 * $num2;
+},
+    ];
 
-$router->get('/',      \App\Controller::class . '@index');
-$router->get('/about', \App\Controller::class . '@about');
-
-$application = new \App\Application($router);
-
-
-$application->run();
+foreach ($arrfunc as $func) {
+   echo \App\Calculator::calculate(33, 3, $func);
+}
