@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Структурный
+ * Паттерн адаптер
+ * Реализуется если у вас есть интерфейс, а (возможно) внешний классс его не реализует
+ */
 class ThirdPartyPaymentGateway {
     public function processPayment(float $amount, string $account): bool {
         // Обработка платежа через стороннюю систему

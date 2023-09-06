@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Пораждающий
+ * Паттерн строитель
+ * Служит для облегчения создания нового объекта
+ * Методы - по сути сеттеры для задания свойств новому объекту
+ */
+
 interface IMachine {
 }
 
@@ -144,7 +151,7 @@ class ComputerBuilder implements IComputerBuilder {
     }
 }
 
-$bulder = new ComputerBuilder(ComputerBuilder::TYPE_GAMING);
+$bulder = new ComputerBuilder(IComputerBuilder::TYPE_GAMING);
 $computer =
     $bulder
         ->set_gpu('2gb')
@@ -153,7 +160,7 @@ $computer =
         ->set_ram('32gb')
         ->getComputer()
 ;
-$bulder = new ComputerBuilder(ComputerBuilder::TYPE_WORK);
+$bulder = new ComputerBuilder(IComputerBuilder::TYPE_WORK);
 $computer =
     $bulder
         ->set_gpu('2gb')
