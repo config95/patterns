@@ -4,7 +4,7 @@
  * Порождающий
  * Паттерн абстрактная фабрика
  *
- * Реализуется если есть одни и те же сущности но разных типов
+ * Создание семейства взаимосвязанных объектов.
  *
  */
 interface IChair {
@@ -19,21 +19,42 @@ interface ICabinet {
     public function open(): void;
 }
 
-class Chair implements IChair {
+class ClassicChair implements IChair {
     public function sit(): void
     {
         echo 'Я сел';
     }
 }
 
-class Table implements ITable {
+class ClassicTable implements ITable {
     public function draw(): void
     {
         echo 'Я рисую';
     }
 }
 
-class Cabinet implements ICabinet {
+class ClassicCabinet implements ICabinet {
+    public function open(): void
+    {
+        echo 'Шкаф открыт';
+    }
+}
+
+class ModernChair implements IChair {
+    public function sit(): void
+    {
+        echo 'Я сел';
+    }
+}
+
+class ModernTable implements ITable {
+    public function draw(): void
+    {
+        echo 'Я рисую';
+    }
+}
+
+class ModernCabinet implements ICabinet {
     public function open(): void
     {
         echo 'Шкаф открыт';
@@ -53,34 +74,34 @@ interface FurnitureFactory {
 class ClassicFurnitureFactory implements FurnitureFactory {
     public function createCabinet(): ICabinet
     {
-        return new Cabinet();
+        return new ClassicCabinet();
     }
 
     public function createChair(): IChair
     {
-        return new Chair();
+        return new ClassicChair();
     }
 
     public function createTable(): ITable
     {
-        return new Table();
+        return new ClassicTable();
     }
 }
 
 class ModernFurnitureFactory implements FurnitureFactory {
     public function createCabinet(): ICabinet
     {
-        return new Cabinet();
+        return new ModernCabinet();
     }
 
     public function createChair(): IChair
     {
-        return new Chair();
+        return new ModernChair();
     }
 
     public function createTable(): ITable
     {
-        return new Table();
+        return new ModernTable();
     }
 }
 
