@@ -276,6 +276,9 @@ RUN set -eux; \
 
 COPY /dockerfiles/docker-php-ext-* /dockerfiles/docker-php-entrypoint /usr/local/bin/
 COPY /dockerfiles/apache2.conf /etc/apache2/
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-enable pdo pdo_mysql
+RUN apachectl restart
 RUN a2enmod rewrite
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
@@ -286,6 +289,10 @@ ENTRYPOINT ["docker-php-entrypoint"]
 STOPSIGNAL SIGWINCH
 
 COPY /dockerfiles/apache2-foreground /usr/local/bin/
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN apt update && apt upgrade
+RUN apt-get install  git zip unzip -y
+
 WORKDIR /var/www/html
 
 EXPOSE 80
